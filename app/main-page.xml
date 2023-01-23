@@ -1,0 +1,42 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
+  <TabView>
+    <TabView.items>
+      <TabViewItem title="Demo">
+        <TabViewItem.view>
+          <ScrollView>
+            <StackLayout class="tab-content">
+              <Label text="{{ status }}" class="status" textWrap="true" style="text-align: center"/>
+              <Label text="Checking availability" class="title"/>
+              <Button text="Je li dostupno?" tap="{{ doCheckAvailable }}" class="button" />
+
+              <Label text="Detektira promijene u bazi." textWrap="true"/>
+              <Button text="Je li biometrijski ID promijenjen?" tap="{{ doCheckFingerprintsChanged }}" class="button" />
+
+              <Label text="Skeniranje otiska prsta" class="title"/>
+              <Label text="Ako skeniranje nije uspješno, koristite lozinku." textWrap="true"/>
+              <Button text="verify with passcode fallback" tap="{{ doVerifyFingerprint }}" class="button" />
+              <iOS>
+                <Button text="verify with custom fallback" tap="{{ doVerifyFingerprintWithCustomFallback }}" class="button" />
+              </iOS>
+              <Android>
+                <Label text="Ukoliko imate grešku, probajte ponovno" textWrap="true"/>
+                <Button text="verify with custom UI" tap="{{ doVerifyFingerprintWithCustomUI }}" class="button" />
+              </Android>
+            </StackLayout>
+          </ScrollView>
+        </TabViewItem.view>
+      </TabViewItem>
+      <TabViewItem title="About">
+        <TabViewItem.view>
+          <StackLayout class="tab-content">
+            <Image margin="10" src="~/res/telerik-logo.png" />
+            <Label text="Fingerprint Auth plugin demo" class="title"/>
+            <Label text="Omogućuje Vam koristiti skener otiska prsta." textWrap="true"/>
+            <Label text=" "/>
+            <Label text="Zamijenjuje tradicionalne lozike." textWrap="true"/>
+          </StackLayout>
+        </TabViewItem.view>
+      </TabViewItem>
+    </TabView.items>
+  </TabView>
+</Page>
